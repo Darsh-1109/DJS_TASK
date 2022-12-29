@@ -27,5 +27,5 @@ indices=[sum(i) for i in zip(indices,temp)]
 print(indices)
 indices.sort(reverse=True)
 print(indices)
-F1_drivers=dict(zip(driver,indices))
+F1_drivers=dict(zip(indices,driver))
 print(F1_drivers)
