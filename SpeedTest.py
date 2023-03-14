@@ -1,4 +1,3 @@
-
 import tkinter as tk
 import time
 from essential_generators import DocumentGenerator
@@ -17,7 +16,7 @@ class TypeSpeedGUI:
         global s
         gen = DocumentGenerator()
         s1=gen.paragraph()
-        s2=s1[0:10]
+        s2=s1[0:50]
         s=s2.rstrip()
         
         self.frame=tk.Frame(self.root)
@@ -62,17 +61,18 @@ class TypeSpeedGUI:
     def print(self):
         
         
-        end=time.time()
-        t=end-start
-        cps = len(self.input_entry.get())/t
-        cpm = cps * 60
+       
         s2=self.input_entry.get()
         d=Levenshtein.distance(s,s2)
         accuracy= (len(s)-d)/len(s) * 100
         if accuracy==100:
-            self.input_entry.config(fg= "green")
-            self.root.configure(bg='green')
-            self.running=False
+             end=time.time()
+             t=end-start
+             cps = len(self.input_entry.get())/t
+             cpm = cps * 60
+             self.input_entry.config(fg= "green")
+             self.root.configure(bg='green')
+             self.running=False
         else:
             self.input_entry.config(fg= "red")
             self.root.configure(bg='red')
